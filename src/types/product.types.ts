@@ -1,8 +1,8 @@
 type Product = {
-  id: number;
+  id?: number;
   name: string;
   amount: string;
-  orderId: number | null;
+  orderId?: number | null;
 };
 
 export default Product;
