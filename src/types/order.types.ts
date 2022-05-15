@@ -6,7 +6,6 @@ type Order = {
 };
 
 export type OrderWithProducts = Order & {
-  // productsIds: Product[];
   productsIds: (number | undefined)[];
 };
 
