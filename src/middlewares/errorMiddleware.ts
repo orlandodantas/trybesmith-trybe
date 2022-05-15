@@ -1,13 +1,14 @@
+import 'express-async-errors';
 import { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import 'express-async-errors';
 import Joi from 'joi';
+import MyError from '../types/error.Types';
 
-const errorMiddleware = (err: Error, _req: Request, res: Response, _next: NextFunction) => {
-  const { statusCode, details } = err as any;
+const errorMiddleware = (err: MyError, _req: Request, res: Response, _next: NextFunction) => {
+  // const { statusCode, details } = err as any;
   
   if (Joi.isError(err)) {
-    if (details[0].type === 'any.required') {
+    if (err.details[0].type === 'any.required') {
       return res.status(StatusCodes.BAD_REQUEST).json(err.message);
     }
 
@@ -18,7 +19,7 @@ const errorMiddleware = (err: Error, _req: Request, res: Response, _next: NextFu
     return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Usuário não autorizado' });
   }
   
-  if (statusCode) return res.status(statusCode).json({ message: err.message });
+  if (err.statusCode) return res.status(err.statusCode).json({ message: err.message });
 
   console.log(err);
   res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: 'Erro interno no servidor!' });
