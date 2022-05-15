@@ -11,6 +11,7 @@ const config: Config = {
     secret: 'topSecret',
     header: {
       expiresIn: '1d',
+      algorithm: 'HS256',
     },
   },
 };

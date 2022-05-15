@@ -9,10 +9,10 @@ const errorMiddleware = (err: MyError, _req: Request, res: Response, _next: Next
   
   if (Joi.isError(err)) {
     if (err.details[0].type === 'any.required') {
-      return res.status(StatusCodes.BAD_REQUEST).json(err.message);
+      return res.status(StatusCodes.BAD_REQUEST).json({ message: err.message });
     }
 
-    return res.status(StatusCodes.UNPROCESSABLE_ENTITY).json(err.message);
+    return res.status(StatusCodes.UNPROCESSABLE_ENTITY).json({ message: err.message });
   }
   
   if (err.name === 'JsonWebTokenError') { 

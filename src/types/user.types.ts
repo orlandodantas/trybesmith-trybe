@@ -7,9 +7,8 @@ type User = {
 };
 
 export type Payload = {
+  id: number,
   username: string,
-  classe: string,
-  level: number,
 };
 
 export type Credential = {

@@ -1,3 +1,5 @@
+import { SignOptions } from 'jsonwebtoken';
+
 type Config = {
   DB: { 
     host: string | undefined;
@@ -6,9 +8,7 @@ type Config = {
   },
   JWT: {
     secret: string;
-    header: {
-      expiresIn: string,
-    }
+    header: SignOptions;
   },
 };
 
