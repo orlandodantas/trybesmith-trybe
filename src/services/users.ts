@@ -13,9 +13,9 @@ class UserService {
   public async create(user: User): Promise<Credential> {
     const { username, classe, level, password } = user;
 
-    await this.model.create({ username, classe, level, password });
+    const id = await this.model.create({ username, classe, level, password });
 
-    return createTokenJWT({ username, classe, level });
+    return createTokenJWT({ id, username });
   }
 }
 
