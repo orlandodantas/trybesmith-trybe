@@ -1,5 +1,5 @@
 import { Pool, ResultSetHeader } from 'mysql2/promise';
-import Product from '../types/product.types';
+import Product, { ProductOrder } from '../types/product.types';
 
 class ProductsModel {
   private connection: Pool;
@@ -23,6 +23,15 @@ class ProductsModel {
     );
 
     return { id: insertId, ...product } as Product;
+  }
+
+  public async updateOrderById(productOrder: ProductOrder): Promise<void> {
+    const { id, orderId } = productOrder;
+
+    await this.connection.execute(
+      'UPDATE Trybesmith.Products SET orderId = ? WHERE id = ?',
+      [orderId, id],
+    );
   }
 }
 

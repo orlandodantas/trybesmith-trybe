@@ -1,6 +1,6 @@
 import connection from '../models/connection';
 import ProductsModel from '../models/products';
-import Product from '../types/product.types';
+import Product, { ProductOrder } from '../types/product.types';
 
 class ProductsService {
   private model: ProductsModel;
@@ -21,6 +21,12 @@ class ProductsService {
     const resultProduct = await this.model.create({ name, amount });
 
     return resultProduct;
+  }
+
+  public async updateOrderById(productOrder: ProductOrder): Promise<void> {
+    const { id, orderId } = productOrder;
+
+    await this.model.updateOrderById({ id, orderId });
   }
 }
 

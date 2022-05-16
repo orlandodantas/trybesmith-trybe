@@ -5,4 +5,9 @@ type Product = {
   orderId?: number | null;
 };
 
+export type ProductOrder = {
+  id: number;
+  orderId: number;
+};
+
 export default Product;
