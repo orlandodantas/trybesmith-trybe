@@ -26,6 +26,19 @@ class OrdersService {
 
     return orderWithProducts;
   }
+
+  public async create(order: OrderWithProducts): Promise<OrderWithProducts> {
+    const { userId, productsIds } = order;
+
+    const orderId = await this.model.create(userId);
+    const productService = new ProductsService();
+
+    productsIds.forEach(async (productId) => {
+      await productService.updateOrderById({ id: productId as number, orderId });
+    });
+
+    return { userId, productsIds };
+  }
 }
 
 export default OrdersService;
