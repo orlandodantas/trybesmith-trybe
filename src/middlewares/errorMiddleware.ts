@@ -16,7 +16,7 @@ const errorMiddleware = (err: MyError, _req: Request, res: Response, _next: Next
   }
   
   if (err.name === 'JsonWebTokenError') { 
-    return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Usuário não autorizado' });
+    return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Invalid token' });
   }
   
   if (err.statusCode) return res.status(err.statusCode).json({ message: err.message });
