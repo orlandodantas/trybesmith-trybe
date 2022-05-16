@@ -11,6 +11,7 @@ class LoginModel {
 
   public async login(login: Login): Promise<Payload[]> {
     const { username, password } = login;
+    
     const [resultLogin] = await this.connection.execute(
       'SELECT id, username FROM Trybesmith.Users WHERE username = ? and password = ?',
       [username, password],

@@ -2,7 +2,7 @@ import Joi from 'joi';
 import { OrderWithProducts } from '../../types/order.types';
 import ErrorMessageJoi from '../../utils/errorMessageJoi';
 
-const schema = Joi.object({
+const schema = Joi.object<OrderWithProducts>({
   productsIds: Joi.array().items(Joi.number().required()).required()
     .messages({
       'array.includesRequiredUnknowns': '"productsIds" must include only numbers',

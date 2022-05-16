@@ -8,7 +8,7 @@ const config: Config = {
     password: process.env.MYSQL_PASSWORD,
   },
   JWT: {
-    secret: 'topSecret',
+    secret: process.env.JWT_SECRET || 'topSecret',
     header: {
       expiresIn: '1d',
       algorithm: 'HS256',
