@@ -1,5 +1,6 @@
 import Joi from 'joi';
 import User from '../../types/user.types';
+import ErrorMessageJoi from '../../utils/errorMessageJoi';
 
 const schema = Joi.object({
   username: Joi.string().min(3).required(),
@@ -11,7 +12,7 @@ const schema = Joi.object({
 const validateFields = (user: User) => {
   const { error } = schema.validate(user);
 
-  if (error) throw error;
+  if (error) ErrorMessageJoi(error);
 };
 
 export default validateFields;

@@ -1,14 +1,6 @@
 import Joi from 'joi';
-import { BadRequestError, UnprocessableEntityError } from 'restify-errors';
 import { OrderWithProducts } from '../../types/order.types';
-
-const validateError = (err: Joi.ValidationError) => {
-  if (err.details[0].type === 'any.required') {
-    throw new BadRequestError(err.message);
-  }
-
-  throw new UnprocessableEntityError(err.message);
-};
+import ErrorMessageJoi from '../../utils/errorMessageJoi';
 
 const schema = Joi.object({
   productsIds: Joi.array().items(Joi.number().required()).required()
@@ -21,7 +13,7 @@ const schema = Joi.object({
 const validateFields = (order: OrderWithProducts) => {
   const { error } = schema.validate(order);
 
-  if (error) validateError(error);
+  if (error) ErrorMessageJoi(error);
 };
 
 export default validateFields;

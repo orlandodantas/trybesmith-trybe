@@ -1,5 +1,6 @@
 import Joi from 'joi';
 import Login from '../../types/login.types';
+import ErrorMessageJoi from '../../utils/errorMessageJoi';
 
 const schema = Joi.object<Login>({
   username: Joi.string().required(),
@@ -9,7 +10,7 @@ const schema = Joi.object<Login>({
 const validateFields = (login: Login) => {
   const { error } = schema.validate(login);
 
-  if (error) throw error;
+  if (error) ErrorMessageJoi(error);
 };
 
 export default validateFields;
