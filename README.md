@@ -102,7 +102,7 @@ Rodar a execução dos testes:
 npm run test
 ```
 
-## Linguagens, dependencias e libs utilizadas :books:
+## Linguagens, dependências e libs utilizadas :books:
 
 - [Node](https://nodejs.org/en/download/)
 - [TypeScript](https://www.typescriptlang.org/)
