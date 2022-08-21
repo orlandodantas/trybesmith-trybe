@@ -56,12 +56,12 @@
 Clone o projeto: 
 
 ```
-git clone https://github.com/orlandodantas/car-shop-trybe.git
+git clone https://github.com/orlandodantas/trybesmith-trybe.git
 ```
 Entre na pasta do projeto: 
 
 ```
-cd car-shop-trybe
+cd trybesmith-trybe
 ```
 
 Instale as dependências: 
@@ -79,8 +79,10 @@ mv .env.exemple .env
 rename .env.exemple .env
 ```
 Abra o arquivo que acabou de renomear em um Editor/IDE de sua preferência por exemplo [VsCode](https://code.visualstudio.com/):
-> Onde tem MYSQL_ROOT_PASSWORD=sua_password_mysql troque sua_password_mysql por uma senha a sua escolha para ser a senha de root
-de acesso ao banco de dados. :warning: Atenção guarde esta senha que vamos usa-la mais a frente. Salve o arquivo e volte ao terminal.
+> Onde tem MYSQL_USER=seu_usuario_mysql troque seu_usuario_mysql pelo usuário root do MySQL, onde tem MYSQL_PASSWORD=sua_senha_mysql troque sua_senha_mysql pela senha do usuario root do MySQL.
+
+Restaurar o banco de dados:
+> Primeiramente siga o método 1 deste tutorial [aqui](https://pt.wikihow.com/Abrir-um-Arquivo-SQL#:~:text=Fa%C3%A7a%2Do%20usando%20a%20janela,nome%20para%20selecionar%20o%20arquivo.&text=Clique%20em%20Abrir%20no%20canto,e%20editar%20seu%20script%20SQL.) para abrir o script ```Trybesmith.sql``` que se encontra na raiz do diretório trybesmith-trybe, após o script aparecer no editor do Workbench clique no icone de um raio, para executar o script. Se tudo ocorrer bem é só prosseguir com os próximos passos.
 
 Rodar a aplicação:
 
@@ -97,13 +99,7 @@ npm run dev
 Rodar a execução dos testes:
 
 ```sh
-npm run test:dev
-```
-
-Rodar a execução do teste coverage:
-
-```sh
-npm run test:coverage
+npm run test
 ```
 
 ## Linguagens, dependencias e libs utilizadas :books:
@@ -113,8 +109,10 @@ npm run test:coverage
 - [Express](https://expressjs.com/pt-br/)
 - [Express Async Errors](https://www.npmjs.com/package/express-async-errors)
 - [Joi](https://www.npmjs.com/package/joi)
-- [Zod](https://www.npmjs.com/package/zod)
-- [Mongoose](https://www.npmjs.com/package/mongoose)
+- [Http Status Codes](https://www.npmjs.com/package/http-status-codes)
+- [Restify Errors](https://www.npmjs.com/package/restify-errors)
+- [Json Web Token](https://www.npmjs.com/package/jsonwebtoken)
+- [MySQL2](https://www.npmjs.com/package/mysql2)
 
 ## Licença 
 
