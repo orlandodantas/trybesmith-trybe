@@ -118,4 +118,4 @@ npm run test
 
 The [MIT License]() (MIT)
 
-Copyright :copyright: 2022 - ToDo List API
+Copyright :copyright: 2022 - TrybeSmith
